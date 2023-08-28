@@ -11,22 +11,25 @@ TestClass SomeFunction() {
 	return class1;
 
 }
-
-
 int main()
 {
-   // std::vector<TestClass> testClasss;
-   ///* testClasss.reserve(10);*/
-
-   // for (int i = 0; i < 1000; i++) {
-   //     testClasss.push_back(TestClass(i, i));
-   // }
-
+	///Move Constructor + Move Assignment
 	TestClass class2(4.5f, 6);
-
 	class2 = SomeFunction();
 
+	//Move Constructor
+	TestClass class3 = SomeFunction();
+	TestClass class4 = std::move(class2);
 
-   
+	//Copy Constructor
+	TestClass class5(6.7, 7);
+	TestClass class6(class5);
+
+	//Copy Assignment
+	TestClass class7(6.7, 7);
+	TestClass class8(7.8, 9);
+	class8 = class7;
+	
+
 }
 
